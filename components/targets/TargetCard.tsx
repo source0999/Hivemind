@@ -30,7 +30,7 @@ export function TargetCard({
     category === "maintenance" ? ("success" as const) : ("neutral" as const);
 
   return (
-    <Card className="p-4">
+    <Card className="border-2 border-neutral-900 bg-white p-4 shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0 flex-1 space-y-2">
           <h3 className="font-medium text-neutral-900">{target.label}</h3>
@@ -46,7 +46,14 @@ export function TargetCard({
             </Badge>
           </div>
           {target.notes ? (
-            <p className="text-sm text-neutral-600 line-clamp-3">{target.notes}</p>
+            <div className="rounded-md border-2 border-neutral-200 bg-neutral-50 p-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-neutral-700">
+                BIP notes
+              </p>
+              <p className="mt-1 whitespace-pre-wrap text-sm text-neutral-800">
+                {target.notes}
+              </p>
+            </div>
           ) : null}
           {showSRSInfo ? (
             <p className="text-xs text-neutral-500">

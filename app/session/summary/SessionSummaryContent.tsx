@@ -167,7 +167,7 @@ export function SessionSummaryContent() {
         </ul>
       </Card>
 
-      <Card className="mt-4 p-4">
+      <Card className="mt-4 border-2 border-amber-500 bg-amber-50 p-4 shadow-sm">
         <h2 className="text-sm font-semibold text-neutral-900">
           High urgency (next session)
         </h2>
@@ -181,7 +181,7 @@ export function SessionSummaryContent() {
             summary.flagged.map(({ target, urgency }) => (
               <li
                 key={target.id}
-                className="flex flex-wrap items-center justify-between gap-2 text-sm"
+                className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-amber-300 bg-white px-2 py-1 text-sm"
               >
                 <span className="text-neutral-900">{target.label}</span>
                 <span className="tabular-nums text-neutral-600">

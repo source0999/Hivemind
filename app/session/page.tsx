@@ -266,7 +266,7 @@ export default function SessionPage() {
       ) : (
         <>
           <div className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm">
-            <p className="font-medium text-neutral-900">
+            <p className="text-2xl font-bold text-neutral-950">
               Next target in: {secondsLeft}s
             </p>
             <p className="mt-1 text-neutral-600">
@@ -300,7 +300,7 @@ export default function SessionPage() {
       <Button
         type="button"
         variant="secondary"
-        className="fixed bottom-4 left-4 right-4 z-40 sm:left-auto sm:right-6 sm:w-auto"
+        className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] left-4 right-4 z-40 border-2 border-neutral-900 font-semibold sm:left-auto sm:right-6 sm:w-auto"
         onClick={openMoodModal}
       >
         Update mood

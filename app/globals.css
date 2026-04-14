@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* High-contrast base for bright environments */
+html {
+  -webkit-tap-highlight-color: transparent;
+}

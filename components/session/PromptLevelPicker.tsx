@@ -36,10 +36,10 @@ export function PromptLevelPicker({
             type="button"
             disabled={disabled}
             onClick={() => onChange(level)}
-            className={`rounded-lg border px-2 py-2 text-center text-xs font-medium capitalize sm:min-w-[5.5rem] sm:px-3 sm:text-sm ${
+            className={`rounded-lg border-2 px-2 py-2 text-center text-xs font-semibold capitalize sm:min-w-[5.5rem] sm:px-3 sm:text-sm ${
               selected
-                ? "border-neutral-900 bg-neutral-900 text-white"
-                : "border-neutral-200 bg-white text-neutral-800 hover:border-neutral-400"
+                ? "border-black bg-neutral-900 text-white"
+                : "border-neutral-900 bg-white text-neutral-950 hover:bg-neutral-100"
             } disabled:opacity-50`}
           >
             {label(level)}

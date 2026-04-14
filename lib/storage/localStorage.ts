@@ -55,4 +55,21 @@ export const localStore = {
     if (!isBrowser()) return;
     localStorage.setItem(KEYS.settings, JSON.stringify(settings));
   },
+
+  /** Full snapshot for backup / export (localStorage only). */
+  exportSnapshot(): {
+    exportedAt: string;
+    schemaVersion: number;
+    targets: Target[];
+    sessions: Session[];
+    settings: Settings;
+  } {
+    return {
+      exportedAt: new Date().toISOString(),
+      schemaVersion: 1,
+      targets: localStore.getTargets(),
+      sessions: localStore.getSessions(),
+      settings: localStore.getSettings(),
+    };
+  },
 };
