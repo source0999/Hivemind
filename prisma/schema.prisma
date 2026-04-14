@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Target {
+  id              String         @id @default(uuid())
+  label           String
+  domain          String
+  category        String
+  masteryStatus   String
+  easeFactor      Float          @default(2.5)
+  interval        Int            @default(1)
+  repetitions     Int            @default(0)
+  nextDue         DateTime       @default(now())
+  lastPromptLevel String         @default("full_physical")
+  notes           String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  trials          SessionTrial[]
+}
+
+model Session {
+  id             String         @id @default(uuid())
+  startedAt      DateTime       @default(now())
+  endedAt        DateTime?
+  clientMood     String
+  cadencePerHour Int
+  targetIds      String[]       @default([])
+  trials         SessionTrial[]
+}
+
+model SessionTrial {
+  id          String   @id @default(uuid())
+  targetId    String
+  sessionId   String
+  timestamp   DateTime @default(now())
+  outcome     String
+  promptLevel String
+  notes       String?
+  target      Target   @relation(fields: [targetId], references: [id], onDelete: Cascade)
+  session     Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([targetId])
+}
